@@ -289,56 +289,60 @@
                     </div>
                 </div>
 
-                <!-- Form Column -->
-                <div class="bg-navy-800 border border-navy-700 p-8 rounded-3xl shadow-2xl">
-                    <h3 class="text-2xl font-bold text-white mb-6">Request a Consultation</h3>
-                    <form id="consultation-form" class="space-y-5" onsubmit="handleFormSubmit(event)">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Full Name</label>
-                                <input type="text" required class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="John Doe">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Email Address</label>
-                                <input type="email" required class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="john@example.com">
-                            </div>
-                        </div>
+               
+      <!-- Form Column -->
+<div class="bg-navy-800 border border-navy-700 p-8 rounded-3xl shadow-2xl">
+    <h3 class="text-2xl font-bold text-white mb-6">Request a Consultation</h3>
+    
+    <!-- Updated Form Tag pointing to Formspree -->
+    <form id="consultation-form" action="https://formspree.io/f/meaojeer" method="POST" class="space-y-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Full Name</label>
+                <input type="text" name="name" required class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="John Doe">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Email Address</label>
+                <!-- Formspree uses _replyto or email so you can reply directly to the sender -->
+                <input type="email" name="email" required class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="john@example.com">
+            </div>
+        </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Country / Region</label>
-                                <select id="country-select" required class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
-                                    <option value="" disabled selected>Select Country Code</option>
-                                    <!-- Populated via JavaScript -->
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Phone Number</label>
-                                <input type="tel" required class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="82 472 0050">
-                            </div>
-                        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Country / Region</label>
+                <select id="country-select" name="country_code" required class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                    <option value="" disabled selected>Select Country Code</option>
+                    <!-- Populated via JavaScript -->
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Phone Number</label>
+                <input type="tel" name="phone" required class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="82 472 0050">
+            </div>
+        </div>
 
-                        <div>
-                            <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Select Service Required</label>
-                            <select class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
-                                <option>Basic Network Troubleshooting</option>
-                                <option>Basic Connectivity Check</option>
-                                <option>Device Configuration Support</option>
-                                <option>Network Assessment & Design</option>
-                                <option>Network Implementation or Deployment</option>
-                                <option>Network Security, Optimization, & Cloud Integration</option>
-                            </select>
-                        </div>
+        <div>
+            <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Select Service Required</label>
+            <select name="service_required" class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                <option>Basic Network Troubleshooting</option>
+                <option>Basic Connectivity Check</option>
+                <option>Device Configuration Support</option>
+                <option>Network Assessment & Design</option>
+                <option>Network Implementation or Deployment</option>
+                <option>Network Security, Optimization, & Cloud Integration</option>
+            </select>
+        </div>
 
-                        <div>
-                            <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Project Details / Message</label>
-                            <textarea rows="4" class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="Tell us about your networking goals..."></textarea>
-                        </div>
+        <div>
+            <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">Project Details / Message</label>
+            <textarea name="message" rows="4" class="w-full bg-navy-900 border border-navy-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors" placeholder="Tell us about your networking goals..."></textarea>
+        </div>
 
-                        <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-navy-900 font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-opacity">
-                            Submit Consultation Request
-                        </button>
-                    </form>
+        <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-navy-900 font-bold py-4 rounded-xl shadow-lg hover:opacity-95 transition-opacity">
+            Submit Consultation Request
+        </button>
+    </form>
                     <div id="form-success" class="hidden mt-4 p-4 bg-emerald-500/20 border border-emerald-500 text-emerald-300 rounded-xl text-center text-sm">
                         Thank you! Your request has been sent successfully. We will be in touch shortly.
                     </div>
@@ -449,13 +453,13 @@
         });
 
         // Form submission handler mock
-        function handleFormSubmit(e) {
+        /*function handleFormSubmit(e) {
             e.preventDefault();
             const form = document.getElementById('consultation-form');
             const successMsg = document.getElementById('form-success');
             form.style.display = 'none';
             successMsg.classList.remove('hidden');
-        }
+        }*/
     </script>
 </body>
 </html>
